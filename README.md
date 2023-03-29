@@ -20,19 +20,19 @@ Create meeting info ( details, start date, start and end time ). Meetings are so
 
 ## Stack
 
-## Frontend
+### Frontend
 
 - React
 - TypeScript
 - Chakra UI
 
-## Tools
+### Tools
 
 - Redux Toolkit
 - React Router
 - Vite
 
-## Libraries
+### Libraries
 
 - React-Icons
 - Lodash
