@@ -18,7 +18,6 @@ const RootLayout = () => {
 			<GridItem
 				p='1em'
 				as='main'
-				bg='#f8f9fa'
 				colSpan={{ base: 6, md: 5 }}
 				minH='100vh'
 				maxH='100vh'>

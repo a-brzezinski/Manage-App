@@ -1,12 +1,12 @@
 export const listItemStyles = {
 	padding: '0.5em',
 	color: '#f8f9fa',
-	fontSize: '1.5rem',
+	fontSize: '2rem',
 };
 
 export const headingStyles = {
 	fontSize: '3rem',
-	color: '#adb5bd',
+	color: '#202c68',
 	letterSpacing: '2px',
 };
 
@@ -14,7 +14,17 @@ export const homeBoxStyle = {
 	border: '1px',
 	padding: '1em',
 	borderRadius: '8px',
-	bg: 'white',
-	borderStyle: 'dashed',
-	height: '200px'
+	backgroundColor: 'white',
+	borderStyle: 'solid',
+	borderWidth: '1px',
+	borderColor: 'gray',
+	height: '230px',
+};
+
+export const boxTransactionItem = {
+	color: '#001233',
+	padding: '1em',
+	borderRadius: '8px',
+	width: '200px',
+	height: '170px',
 };

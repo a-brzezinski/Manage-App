@@ -5,7 +5,7 @@ interface initialStateType {
 	tasks: TasksStateType[];
 	tasksContainer: TasksStateType[];
 	finishedTasks: TasksStateType[];
-	progress: number | string;
+	progress: any
 }
 
 const initialState: initialStateType = {

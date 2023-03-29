@@ -12,6 +12,7 @@ import AddTaskForm from './AddTaskForm/AddTaskForm';
 import TaskList from './TasksList/TasksList';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { AddIcon } from '@chakra-ui/icons';
 
 const TasksControl: React.FC = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,7 +33,9 @@ const TasksControl: React.FC = () => {
 				w='100%'
 				borderRadius='1em'
 				border='dashed #ced4da'>
-				<Button onClick={onOpen}>Add New Task</Button>
+				<Button leftIcon={<AddIcon />} colorScheme='messenger' onClick={onOpen}>
+					Add New Task
+				</Button>
 				<Spacer />
 				<Select
 					width={{ base: '40%', lg: '20%' }}
@@ -44,7 +47,7 @@ const TasksControl: React.FC = () => {
 				</Select>
 			</Flex>
 			{tasksList.length === 0 && (
-				<Heading mt='1em' textAlign='center' color='green.400'>
+				<Heading as='h3' mt='1em' textAlign='center' color='gray.500'>
 					No Tasks
 				</Heading>
 			)}

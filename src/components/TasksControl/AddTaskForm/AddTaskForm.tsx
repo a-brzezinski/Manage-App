@@ -30,16 +30,16 @@ interface TaskData {
 }
 
 const AddTaskForm: React.FC<Props> = ({ isOpen, onClose }) => {
-	const [inputValue, setInputValue] = useState('');
+	const [taskName, setTaskName] = useState('');
 	const [descriptionValue, setDescriptionValue] = useState('');
-	const [selectValue, setSelectValue] = useState('urgent');
+	const [selectValue, setSelectValue] = useState('');
 	const [taskData, setTaskData] = useState<TaskData>();
 	const toast = useToast();
 
 	const dispatch = useDispatch();
 
 	const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setInputValue(e.target.value);
+		setTaskName(e.target.value);
 	};
 	const descriptionChangeHandler = (
 		e: React.ChangeEvent<HTMLTextAreaElement>
@@ -52,12 +52,12 @@ const AddTaskForm: React.FC<Props> = ({ isOpen, onClose }) => {
 
 	useEffect(() => {
 		setTaskData({
-			taskName: inputValue,
+			taskName: taskName,
 			description: descriptionValue,
 			importance: selectValue,
 			id: Date.now(),
 		});
-	}, [inputValue, selectValue, descriptionValue]);
+	}, [taskName, selectValue, descriptionValue]);
 
 	const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
