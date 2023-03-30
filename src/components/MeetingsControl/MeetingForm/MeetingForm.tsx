@@ -6,6 +6,7 @@ import {
 	FormLabel,
 	Input,
 	Stack,
+	useToast,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -37,6 +38,7 @@ const MeetingForm: React.FC = () => {
 	};
 
 	const dispatch = useDispatch();
+	const toast = useToast();
 
 	useEffect(() => {
 		setStartMeeting({
@@ -55,6 +57,16 @@ const MeetingForm: React.FC = () => {
 	const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		dispatch(meetingsActions.addMeeting(startMeeting));
+		toast({
+			title: 'Meeting Created',
+			status: 'success',
+			isClosable: true,
+			duration: 3000,
+		});
+		setMeetingDetails('');
+		setMeetingStartDate('');
+		setMeetingStartTime('');
+		setMeetingEndTime('');
 	};
 
 	return (
@@ -70,6 +82,7 @@ const MeetingForm: React.FC = () => {
 							required
 							maxW='500px'
 							onChange={meetingDetailsHandler}
+							value={meetingDetails}
 						/>
 					</Box>
 					<Box>
@@ -81,19 +94,23 @@ const MeetingForm: React.FC = () => {
 								required
 								w='100%'
 								type='date'
-								min='2020-12-31'
+								min='2023-01-30'
 								max='2100-12-31'
 								onChange={startMeetingDateHandler}
+								value={meetingStartDate}
 							/>
-							<Flex gap={2} w='100%' >
+							<Flex gap={2} w='100%'>
 								<Flex flexDir='column' w='100%'>
 									<Input
 										required
 										w='100%'
 										type='time'
 										onChange={startMeetingTimeHandler}
+										value={meetingStartTime}
 									/>
-									<FormLabel textAlign='center' mt='0.3em' color='#00b4d8'>Start Time</FormLabel>
+									<FormLabel textAlign='center' mt='0.3em' color='#00b4d8'>
+										Start Time
+									</FormLabel>
 								</Flex>
 								<Flex flexDir='column' w='100%'>
 									<Input
@@ -101,8 +118,11 @@ const MeetingForm: React.FC = () => {
 										w='100%'
 										type='time'
 										onChange={endMeetingTimeHandler}
+										value={meetingEndTime}
 									/>
-									<FormLabel textAlign='center' mt='0.3em' color='#48cae4'>End Time</FormLabel>
+									<FormLabel textAlign='center' mt='0.3em' color='#48cae4'>
+										End Time
+									</FormLabel>
 								</Flex>
 							</Flex>
 						</Flex>
